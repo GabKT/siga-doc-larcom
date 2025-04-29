@@ -435,7 +435,7 @@
 										<u>P</u>DF
 	<!-- 									</a> -->
 							</a>
-							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdfsemmarcas" id="radioPDFSemMarcas" name="pdfsemmarcas" value="pdfsemmarcas" accesskey="p" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfAtual,'semmarcas/'); trackRequest('${sigla}','PDF Sem Marcas');">
+							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdfsemmarcas" id="radioPDFSemMarcas" name="pdfsemmarcas" value="pdfsemmarcas" accesskey="p" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,'${pdf}','semmarcas/'); trackRequest('${sigla}','PDF Sem Marcas');">
 										PDF Sem Marcas
 							</a>
 							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdftamanhooriginal" id="radioPDFTamanhoOriginal" name="pdftamanhooriginal" value="pdftamanhooriginal" accesskey="r" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfAtual,''); trackRequest('${sigla}','PDF Sem Redimensionamento');">
