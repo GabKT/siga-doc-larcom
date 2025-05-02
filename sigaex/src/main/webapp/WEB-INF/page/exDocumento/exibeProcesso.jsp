@@ -443,7 +443,7 @@
 							</a>
 						</div>
 						<a class="btn-btn-primary btn-sm d-none" id="pdflink" accesskey="a"><u>a</u>brir PDF</a>
-						<a class="btn-btn-primary btn-sm d-none" id="pdfsemmarcaslink" accesskey="b">a<u>b</u>rir PDF</a>
+						<a class="btn-btn-primary btn-sm d-none" id="pdfsemmarcaslink" href="${pdfOriginal}"  accesskey="b">a<u>b</u>rir PDF</a>
 						<a class="btn-btn-primary btn-sm d-none" id="pdftamanhooriginallink">abrir PDF</a>
 						<input type="hidden" name="formato" id="radio" value="html">
 					</div>
@@ -525,8 +525,15 @@
 <script>
 	var htmlAtual = '${arqsNum[0].referenciaHtmlCompletoDocPrincipal}';
 	var pdfAtual = '${arqsNum[0].referenciaPDFCompletoDocPrincipal}';	
+	var pdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt='+ getCookie("siga-jwt-auth") +'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 	var path = '/sigaex/app/arquivo/exibir?idVisualizacao=${idVisualizacao}&iframe=true';
 	var tamanhoArquivosDocs = new Array();
+
+	function getCookie(name) {
+		const value = `; ${document.cookie}`;
+		const parts = value.split(`; ${name}=`);
+		if (parts.length === 2) return parts.pop().split(';').shift();
+	}
 	
 	if ('${mob.doc.podeReordenar()}' === 'true' && '${podeExibirReordenacao}' === 'true') path += '&exibirReordenacao=true';			
 	path += '&arquivo=';			
