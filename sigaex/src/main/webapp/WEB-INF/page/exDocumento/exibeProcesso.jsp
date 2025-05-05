@@ -261,6 +261,7 @@
 							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfAtual,'semmarcas/');">
 								PDF <u>s</u>em marcas - <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 							</input>
+							<a href="${pdfOriginal}" id="pdforiginal">download</a>
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
@@ -444,7 +445,6 @@
 						</div>
 						<a class="btn-btn-primary btn-sm d-none" id="pdflink" accesskey="a"><u>a</u>brir PDF</a>
 						<a class="btn-btn-primary btn-sm d-none" id="pdfsemmarcaslink"  accesskey="b">a<u>b</u>rir PDF</a>
-						<a class="btn-btn-primary btn-sm d-none" id="pdfOriginalLink" href="${pdfOriginal}">Download</a>
 						<a class="btn-btn-primary btn-sm d-none" id="pdftamanhooriginallink">abrir PDF</a>
 						<input type="hidden" name="formato" id="radio" value="html">
 					</div>
