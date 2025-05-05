@@ -858,9 +858,9 @@
 			}
 		}
 
-		function printarRefPdf(){
+	}
+	function printarRefPdf(){
 		console.log(arqNum);
-		}
 	}
 	
 </script>
