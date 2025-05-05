@@ -443,7 +443,8 @@
 							</a>
 						</div>
 						<a class="btn-btn-primary btn-sm d-none" id="pdflink" accesskey="a"><u>a</u>brir PDF</a>
-						<a class="btn-btn-primary btn-sm d-none" id="pdfsemmarcaslink" href="${pdfOriginal}"  accesskey="b">a<u>b</u>rir PDF</a>
+						<a class="btn-btn-primary btn-sm d-none" id="pdfsemmarcaslink"  accesskey="b">a<u>b</u>rir PDF</a>
+						<a class="btn-btn-primary btn-sm d-none" id="pdfOriginalLink" href="${pdfOriginal}">Download</a>
 						<a class="btn-btn-primary btn-sm d-none" id="pdftamanhooriginallink">abrir PDF</a>
 						<input type="hidden" name="formato" id="radio" value="html">
 					</div>
