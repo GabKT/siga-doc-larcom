@@ -526,10 +526,14 @@
 <script>
 	var htmlAtual = '${arqsNum[0].referenciaHtmlCompletoDocPrincipal}';
 	var pdfAtual = '${arqsNum[0].referenciaPDFCompletoDocPrincipal}';	
-	var arqNum = '${arqsNum[0]}';
 	var pdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt='+ getCookie("siga-jwt-auth") +'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 	var path = '/sigaex/app/arquivo/exibir?idVisualizacao=${idVisualizacao}&iframe=true';
 	var tamanhoArquivosDocs = new Array();
+
+	var arqNumRefPdfCompleto = '${arqsNum[0].getReferenciaPDFCompleto()}';
+	var arqNumRefPdf = '${arqsNum[0].getReferenciaPDF()}';
+	var arquivoRefPdf = '${arqsNum[0].getArquivo().getReferenciaPDF()}';
+	var arquivoRefPdfCompleto = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
 
 	function getCookie(name) {
 		const value = `; ${document.cookie}`;
@@ -860,7 +864,12 @@
 
 	}
 	function printarRefPdf(){
-		console.log(arqNum);
+		console.log("Pdf atual: " + pdfAtual);
+		console.log("Arquivo numerado referencia pdf: " + arqNumRefPdf);
+		console.log("Arquivo numerado referencia pdf completo: " + arqNumRefPdfCompleto);
+		console.log("arqNum>arqPdfRef: " + arquivoRefPdf);
+		console.log("arqNum>arqPdfRefCompleto: " + arquivoRefPdfCompleto);
+
 	}
 	
 </script>
