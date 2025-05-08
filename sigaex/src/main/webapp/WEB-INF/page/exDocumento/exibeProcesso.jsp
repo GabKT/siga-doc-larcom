@@ -261,6 +261,7 @@
 							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfOriginal,'');">
 								PDF <u>s</u>em marcas - <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 							</input>
+							<button onclick="printDebug()">debug</button>
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
@@ -528,10 +529,11 @@
 	var path = '/sigaex/app/arquivo/exibir?idVisualizacao=${idVisualizacao}&iframe=true';
 	var tamanhoArquivosDocs = new Array();
 	var pdfOriginal = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
+	var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+getCookieValueByKey('siga-jwt-auth')+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 
-	function getCookie(name) {
+	function getCookieValueByKey(key) {
 		const value = `; ${document.cookie}`;
-		const parts = value.split(`; ${name}=`);
+		const parts = value.split(`; ${key}=`);
 		if (parts.length === 2) return parts.pop().split(';').shift();
 	}
 	
@@ -856,6 +858,10 @@
 			}
 		}
 
+	}
+
+	function printDebug(){
+		console.log("linkPdfOriginal = " + linkPdfOriginal);
 	}
 	
 </script>
