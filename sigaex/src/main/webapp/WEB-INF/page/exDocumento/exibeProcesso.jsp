@@ -258,10 +258,9 @@
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
-							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfAtual,'semmarcas/');">
+							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfOriginal,'');">
 								PDF <u>s</u>em marcas - <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 							</input>
-							<button onclick="printarRefPdf()">refPdf</button>
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
@@ -436,7 +435,7 @@
 										<u>P</u>DF
 	<!-- 									</a> -->
 							</a>
-							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdfsemmarcas" id="radioPDFSemMarcas" name="pdfsemmarcas" value="pdfsemmarcas" accesskey="p" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,'${pdf}','semmarcas/'); trackRequest('${sigla}','PDF Sem Marcas');">
+							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdfsemmarcas" id="radioPDFSemMarcas" name="pdfsemmarcas" value="pdfsemmarcas" accesskey="p" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfOriginal,''); trackRequest('${sigla}','PDF Sem Marcas');">
 										PDF Sem Marcas
 							</a>
 							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdftamanhooriginal" id="radioPDFTamanhoOriginal" name="pdftamanhooriginal" value="pdftamanhooriginal" accesskey="r" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfAtual,''); trackRequest('${sigla}','PDF Sem Redimensionamento');">
@@ -526,14 +525,9 @@
 <script>
 	var htmlAtual = '${arqsNum[0].referenciaHtmlCompletoDocPrincipal}';
 	var pdfAtual = '${arqsNum[0].referenciaPDFCompletoDocPrincipal}';	
-	var pdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt='+ getCookie("siga-jwt-auth") +'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 	var path = '/sigaex/app/arquivo/exibir?idVisualizacao=${idVisualizacao}&iframe=true';
 	var tamanhoArquivosDocs = new Array();
-
-	var arqNumRefPdfCompleto = '${arqsNum[0].getReferenciaPDFCompleto()}';
-	var arqNumRefPdf = '${arqsNum[0].getReferenciaPDF()}';
-	var arquivoRefPdf = '${arqsNum[0].getArquivo().getReferenciaPDF()}';
-	var arquivoRefPdfCompleto = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
+	var pdfOriginal = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
 
 	function getCookie(name) {
 		const value = `; ${document.cookie}`;
@@ -861,14 +855,6 @@
 				document.getElementById('panelPagPdfs').innerHTML = strInnerHtml.concat(strLinks);
 			}
 		}
-
-	}
-	function printarRefPdf(){
-		console.log("Pdf atual: " + pdfAtual);
-		console.log("Arquivo numerado referencia pdf: " + arqNumRefPdf);
-		console.log("Arquivo numerado referencia pdf completo: " + arqNumRefPdfCompleto);
-		console.log("arqNum>arqPdfRef: " + arquivoRefPdf);
-		console.log("arqNum>arqPdfRefCompleto: " + arquivoRefPdfCompleto);
 
 	}
 	
