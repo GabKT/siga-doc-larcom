@@ -539,7 +539,7 @@
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded' 
 				},
-				body: `n=${encodeURIComponent(n)}`
+				body: 'n='+encodeURIComponent(n)
 			})
 			.then(response => response.json())
 			.then(data => {
