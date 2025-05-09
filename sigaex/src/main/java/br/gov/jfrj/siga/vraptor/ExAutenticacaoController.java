@@ -375,14 +375,6 @@ public class ExAutenticacaoController extends ExController {
 		result.include("podeVisualizarExternamente", podeVisualizarExternamente);
 	}
 
-	@Post("public/app/arquivoOriginal")
-	public void disponibilizarJwt(String n) throws IOException{
-		String jwt = buildJwtToken(n);
-		response.setContentType("application/json");
-    	response.getWriter().write("{\"urlPdf\":\"" + jwt + "\"}");
-	}
-
-
 	private static String getRecaptchaSiteKey() {
 		return Prop.get("/siga.recaptcha.key");
 	}
