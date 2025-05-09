@@ -531,6 +531,24 @@
 	var pdfOriginal = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
 	var siglaAssinatura = '${arqsNum[0].getArquivo().getSiglaAssinatura()}';
 	//var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+getCookieValueByKey('siga-jwt-auth')+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
+	
+	function getPdfUrl(n) {
+
+		fetch('/jwt/disponibilizar', {
+				method: 'POST',
+				headers: {
+				'Content-Type': 'application/x-www-form-urlencoded' 
+				},
+				body: 'n='+encodeURIComponent(n)
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log('UrlPdf Recebido:', data.urlPdf);
+			})
+			.catch(error => {
+				console.error('Erro ao pegar url:', error);
+			});
+	}
 
 	function getCookieValueByKey(key) {
 		const value = `; ${document.cookie}`;
