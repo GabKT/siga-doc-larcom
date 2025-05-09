@@ -534,7 +534,7 @@
 	
 	function getPdfUrl(n) {
 
-		fetch('/jwt/disponibilizar', {
+		fetch('${pageContext.request.contextPath}/app/disponibilizarJwt', {
 				method: 'POST',
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded' 
