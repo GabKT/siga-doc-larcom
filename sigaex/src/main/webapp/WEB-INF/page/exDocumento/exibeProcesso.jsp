@@ -530,7 +530,7 @@
 	var tamanhoArquivosDocs = new Array();
 	var pdfOriginal = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
 	var siglaAssinatura = '${arqsNum[0].getArquivo().getSiglaAssinatura()}';
-	var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+getCookieValueByKey('siga-jwt-auth')+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
+	//var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+getCookieValueByKey('siga-jwt-auth')+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 
 	function getPdfUrl(n) {
 
@@ -880,7 +880,6 @@
 	}
 
 	function printDebug(){
-		console.log("linkPdfOriginal = " + linkPdfOriginal);
 		console.log("cookies = " + document.cookie);
 		console.log("siglaAssinatura = " + siglaAssinatura);
 		getPdfUrl(siglaAssinatura);
