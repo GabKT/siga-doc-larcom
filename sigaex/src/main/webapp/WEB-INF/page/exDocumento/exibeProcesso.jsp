@@ -533,7 +533,6 @@
 	//var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+getCookieValueByKey('siga-jwt-auth')+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 	
 	function getPdfUrl(n) {
-
 		fetch('${pageContext.request.contextPath}/app/disponibilizarJwt', {
 				method: 'POST',
 				headers: {
