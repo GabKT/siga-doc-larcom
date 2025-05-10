@@ -262,6 +262,7 @@
 								PDF <u>s</u>em marcas - <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 							</input>
 							<button onclick="printDebug()">debug</button>
+							<a href="" id="linkDocOriginal">Download</a>
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
@@ -439,7 +440,6 @@
 							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdfsemmarcas" id="radioPDFSemMarcas" name="pdfsemmarcas" value="pdfsemmarcas" accesskey="p" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfOriginal,''); trackRequest('${sigla}','PDF Sem Marcas');">
 										PDF Sem Marcas
 							</a>
-							<a id="linkDocOriginal">Download</a>
 							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdftamanhooriginal" id="radioPDFTamanhoOriginal" name="pdftamanhooriginal" value="pdftamanhooriginal" accesskey="r" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfAtual,''); trackRequest('${sigla}','PDF Sem Redimensionamento');">
 								PDF Tamanho Original
 							</a>
@@ -532,13 +532,10 @@
 	var pdfOriginal = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
 	var siglaAssinatura = '${arqsNum[0].getArquivo().getSiglaAssinatura()}';
 	
-	var urlJwt = getPdfUrl(siglaAssinatura);
-	var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+urlJwt+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
-	document.getElementById('linkDocOriginal').href = linkPdfOriginal;
-
+	getPdfUrl(siglaAssinatura);
 
 	function getPdfUrl(n) {
-		fetch('${pageContext.request.contextPath}/public/app/disponibilizarJwt', {
+		fetch('sigaex/public/app/disponibilizarJwt', {
 				method: 'POST',
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded' 
@@ -548,7 +545,8 @@
 			.then(response => response.json())
 			.then(data => {
 				console.log('UrlPdf Recebido:', data);
-				return data.urlPdf;
+				var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+data.urlPdf+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
+				document.getElementById('linkDocOriginal').href = linkPdfOriginal;
 			})
 			.catch(error => {
 				console.error('Erro ao pegar url:', error);

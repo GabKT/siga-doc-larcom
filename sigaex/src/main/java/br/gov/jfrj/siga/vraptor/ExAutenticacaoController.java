@@ -380,7 +380,9 @@ public class ExAutenticacaoController extends ExController {
 	@Post("/public/app/disponibilizarJwt")
 	public void disponibilizarJwt(String n) throws IOException{
 		String jwt = buildJwtToken(n);
-		result.use(Results.json()).from(Collections.singletonMap("urlPdf", jwt)).serialize();
+		Map<String, String> json = new HashMap<>();
+		json.put("urlPdf", jwt);
+		result.use(Results.json()).from(json).recursive().serialize();
 	}
 
 	private static String getRecaptchaSiteKey() {
