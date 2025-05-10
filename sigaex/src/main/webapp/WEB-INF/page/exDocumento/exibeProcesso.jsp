@@ -535,7 +535,7 @@
 	getPdfUrl(siglaAssinatura);
 
 	function getPdfUrl(n) {
-		fetch('sigaex/public/app/disponibilizarJwt', {
+		fetch('${pageContext.request.contextPath}/public/app/disponibilizarJwt', {
 				method: 'POST',
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded' 
