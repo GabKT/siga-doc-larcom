@@ -382,7 +382,7 @@ public class ExAutenticacaoController extends ExController {
 		String jwt = buildJwtToken(n);
 		Map<String, String> json = new HashMap<>();
 		json.put("urlPdf", jwt);
-		result.use(Results.json()).from(json).recursive().serialize();
+		result.use(Results.json()).withoutRoot().from(json).serialize();
 	}
 
 	private static String getRecaptchaSiteKey() {
