@@ -439,6 +439,7 @@
 							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdfsemmarcas" id="radioPDFSemMarcas" name="pdfsemmarcas" value="pdfsemmarcas" accesskey="p" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfOriginal,''); trackRequest('${sigla}','PDF Sem Marcas');">
 										PDF Sem Marcas
 							</a>
+							<a id="linkDocOriginal">Download</a>
 							<a class="btn btn-primary btn-sm notActive" data-toggle="formato" data-title="pdftamanhooriginal" id="radioPDFTamanhoOriginal" name="pdftamanhooriginal" value="pdftamanhooriginal" accesskey="r" onclick="toggleBotaoHtmlPdf($(this)); exibir(htmlAtual,pdfAtual,''); trackRequest('${sigla}','PDF Sem Redimensionamento');">
 								PDF Tamanho Original
 							</a>
@@ -530,10 +531,14 @@
 	var tamanhoArquivosDocs = new Array();
 	var pdfOriginal = '${arqsNum[0].getArquivo().getReferenciaPDFCompleto()}';
 	var siglaAssinatura = '${arqsNum[0].getArquivo().getSiglaAssinatura()}';
-	//var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+getCookieValueByKey('siga-jwt-auth')+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 	
+	var urlJwt = getPdfUrl(siglaAssinatura);
+	var linkPdfOriginal = montarUrlDocPDF('/public/app/arquivoAutenticado_stream?jwt=$'+urlJwt+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
+	document.getElementById('linkDocOriginal').href = linkPdfOriginal;
+
+
 	function getPdfUrl(n) {
-		fetch('${pageContext.request.contextPath}/app/disponibilizarJwt', {
+		fetch('${pageContext.request.contextPath}/public/app/disponibilizarJwt', {
 				method: 'POST',
 				headers: {
 				'Content-Type': 'application/x-www-form-urlencoded' 
@@ -542,7 +547,8 @@
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log('UrlPdf Recebido:', data.urlPdf);
+				console.log('UrlPdf Recebido:', data);
+				return data.urlPdf;
 			})
 			.catch(error => {
 				console.error('Erro ao pegar url:', error);
