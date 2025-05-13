@@ -377,7 +377,7 @@ public class ExAutenticacaoController extends ExController {
 		result.include("podeVisualizarExternamente", podeVisualizarExternamente);
 	}
 
-	@Post("/public/app/disponibilizarJwt")
+	@Post("/app/arquivo/tokenAcesso")
 	public void disponibilizarJwt(String n) throws IOException{
 		String jwt = buildJwtToken(n);
 		Map<String, String> json = new HashMap<>();

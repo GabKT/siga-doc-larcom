@@ -261,8 +261,7 @@
 							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfOriginal,'');">
 								PDF <u>s</u>em marcas - <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 							</input>
-							<button onclick="printDebug()">debug</button>
-							<a href="" id="linkDocOriginal">Download</a>
+							<a href="" id="linkDocOriginal" target="_blank">Download</a>
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
@@ -535,10 +534,11 @@
 	getPdfUrl(siglaAssinatura);
 
 	function getPdfUrl(n) {
-		fetch('${pageContext.request.contextPath}/public/app/disponibilizarJwt', {
+		fetch('${pageContext.request.contextPath}/app/arquivo/tokenAcesso', {
 				method: 'POST',
+				credentials: 'include',
 				headers: {
-				'Content-Type': 'application/x-www-form-urlencoded' 
+					'Content-Type': 'application/x-www-form-urlencoded' 
 				},
 				body: 'n='+encodeURIComponent(n)
 			})
@@ -880,12 +880,6 @@
 			}
 		}
 
-	}
-
-	function printDebug(){
-		console.log("cookies = " + document.cookie);
-		console.log("siglaAssinatura = " + siglaAssinatura);
-		getPdfUrl(siglaAssinatura);
 	}
 	
 </script>
