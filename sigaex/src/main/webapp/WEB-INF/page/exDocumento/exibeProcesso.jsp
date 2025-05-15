@@ -179,6 +179,10 @@
 		redimensionar();
 		resize();
 	}
+
+	$(document).ready(function () {
+    	$('[data-toggle="tooltip"]').tooltip();
+  	});
 </script>
 
 <!-- main content bootstrap -->
@@ -259,9 +263,9 @@
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
 							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfOriginal,'');">
-								PDF <u>s</u>em marcas - <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
+								PDF <u>s</u>em marcas - <a href="" id="linkDocOriginal" data-toggle="tooltip" title="Para realizar validação da assinatura do documento, clicar em abrir e realizar download do documento" target="_blank">abrir</a>
+
 							</input>
-							<a href="" id="linkDocOriginal" target="_blank">Download</a>
 							</span>
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
