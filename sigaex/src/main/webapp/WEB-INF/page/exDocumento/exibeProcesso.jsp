@@ -257,6 +257,7 @@
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
 							<input type="radio" id="radioPDF" name="formato" value="pdf" accesskey="p" onclick="exibir(htmlAtual,pdfAtual,'');">
+							- <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 								<u>P</u>DF -  <a id="pdflink" accesskey="a"> <u>a</u>brir</a>
 							</input>
 							</span>
