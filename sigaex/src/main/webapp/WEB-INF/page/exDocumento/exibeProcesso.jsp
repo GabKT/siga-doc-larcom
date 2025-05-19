@@ -257,7 +257,6 @@
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
 							<input type="radio" id="radioPDF" name="formato" value="pdf" accesskey="p" onclick="exibir(htmlAtual,pdfAtual,'');">
-							- <a id="pdfsemmarcaslink" accesskey="b"> a<u>b</u>rir</a>
 								<u>P</u>DF -  <a id="pdflink" accesskey="a"> <u>a</u>brir</a>
 							</input>
 							</span>
@@ -265,7 +264,6 @@
 							<span style="white-space: nowrap;">
 							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfOriginal,'');">
 								PDF <u>s</u>em marcas - <a href="" id="linkDocOriginal" data-toggle="tooltip" title="Para realizar validação da assinatura do documento, clicar em abrir e realizar download do documento" target="_blank">abrir</a>
-
 							</input>
 							</span>
 							<span class="pl-2"></span>			
@@ -572,21 +570,12 @@
 		if ('${siga_cliente}' == 'GOVSP') {
 			document.getElementById('pdflink').href = path + refPDF + '&sigla=${sigla}';
 			
-			//sem marcas
-			if ($('#radioPDFSemMarcas').hasClass('active')) {
-				document.getElementById('pdfsemmarcaslink').href = path + refPDF + "&semmarcas=1";
-			//com marcas sem redimensionamento
-			} else if ($('#radioPDFTamanhoOriginal').hasClass('active')) {
+			if ($('#radioPDFTamanhoOriginal').hasClass('active')) {
 				document.getElementById('pdftamanhooriginallink').href = path + refPDF + "&tamanhoOriginal=true";
 			}
 			//com marcas
 		} else {
 			document.getElementById('pdflink').href = path + refPDF;
-		}
-		
-		//sem marcas
-		if (document.getElementById('radioPDFSemMarcas') != null) {
-			document.getElementById('pdfsemmarcaslink').href = path + refPDF + "&semmarcas=1";
 		}
 		
 		//com marcas sem redimensionamento
