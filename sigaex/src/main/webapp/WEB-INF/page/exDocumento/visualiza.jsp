@@ -587,8 +587,8 @@
 						<script>
 							var relacionado = "${pageContext.request.contextPath}/app/expediente/doc/exibir?sigla=${mobRelacionado.sigla}";
 							var docVO = "${docVO}";
-							console.log("Relacionado visualiza: " + relacionado)
-							console.log("docVO visualiza: " + docVO)
+							console.log("Relacionado visualiza: ", relacionado)
+							console.log("docVO visualiza: ", docVO)
 							$(document).ready(function() {
 								$(window).resize(function() {
 									updateContainerRelacaoDocs();
