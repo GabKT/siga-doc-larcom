@@ -800,6 +800,13 @@ public class Documento {
 		
 		RequestInfo ri = CurrentRequest.get();		
 		String realPath = Contexto.urlBase(ri.getRequest()) + ri.getRequest().getContextPath();
+
+		System.out.println("*******************RI.GETREQUEST*******************");
+		System.out.println(ri.getRequest());
+		System.out.println("*******************RI.GETCONTEXTPATH*******************");
+		System.out.println(ri.getRequest().getContextPath());
+		System.out.println("*******************REALPATH*******************");
+		System.out.println(realPath);
 		
 		if (realPath.endsWith("/siga-le"))
 			realPath = realPath.replace("/siga-le", "/sigaex");
