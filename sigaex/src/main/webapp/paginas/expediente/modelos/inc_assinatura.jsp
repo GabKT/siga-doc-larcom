@@ -6,7 +6,7 @@
 
 <p style="font-family: Arial; font-size: 11pt; font-weight: bold;"
 	align="center">
-	<!-- INICIO SUBSCRITOR ${doc.subscritor.id} -->
+	<!-- SIGLA ASSINATURA ${doc.siglaAssinatura} -->
 	<c:choose>
 		<c:when test="${not empty doc.nmSubscritor}">
 			${doc.nmSubscritor}
@@ -48,10 +48,10 @@
 	</c:choose>
 
 </c:if>
-<!-- FIM SUBSCRITOR ${doc.subscritor.id} -->
+<!-- FIM SIGLA ASSINATURA ${doc.siglaAssinatura} -->
 <c:forEach var="mov" items="${doc.mobilGeral.exMovimentacaoSet}">
 	<c:if test="${mov.exTipoMovimentacao == 'INCLUSAO_DE_COSIGNATARIO'}">
-		<!-- INICIO SUBSCRITOR ${mov.subscritor.id} -->
+		<!-- SIGLA ASSINATURA ${mov.siglaAssinatura} -->
 		<br/>
 		<br/>
 		<br/>
@@ -87,7 +87,7 @@
 				<c:otherwise>${mov.titular.lotacao.nomeLotacao}</c:otherwise>
 			</c:choose>
 		</c:if>
-		<!-- FIM SUBSCRITOR ${mov.subscritor.id} -->
+		<!-- FIM SIGLA ASSINATURA ${mov.siglaAssinatura} -->
 	</c:if>
 </c:forEach></c:if>
 <c:if test="${not empty param.textoFinal}">
