@@ -263,7 +263,7 @@
 							<span class="pl-2"></span>			
 							<span style="white-space: nowrap;">
 							<input type="radio" id="radioPDFSemMarcas" name="formato" accesskey="s" value="pdfsemmarcas" onclick="exibir(htmlAtual,pdfOriginal,'');">
-								PDF <u>s</u>em marcas - <a href="" id="linkDocOriginal" data-toggle="tooltip" title="Para realizar validação da assinatura do documento, clicar em abrir e realizar download do documento" target="_blank">abrir</a>
+								PDF <u>s</u>em marcas - <a href="" id="linkDocOriginal" data-toggle="tooltip" title="Arquivo Original sem marcas" target="_blank">abrir</a>
 							</input>
 							</span>
 							<span class="pl-2"></span>			
@@ -547,7 +547,6 @@
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log('UrlPdf Recebido:', data);
 				var linkPdfOriginal = montarUrlDocPDF('/sigaex/public/app/arquivoAutenticado_stream?jwt='+data.urlPdf+'&assinado=false&redimensionarParaA4=false', "${f:resource('/sigaex.pdf.visualizador')}");
 				document.getElementById('linkDocOriginal').href = linkPdfOriginal;
 			})
