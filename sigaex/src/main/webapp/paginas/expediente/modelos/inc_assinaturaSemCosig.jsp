@@ -6,7 +6,7 @@
 
 <p style="font-family: Arial; font-size: 11pt; font-weight: bold;"
 	align="center">
-	<!-- SIGLA ASSINATURA ${doc.siglaAssinatura} -->
+	<!-- INICIO SUBSCRITOR ${doc.subscritor.id} -->
 	<br />
 	<c:choose>
 	<c:when test="${not empty doc.nmSubscritor}">
@@ -53,6 +53,6 @@
 		<br />${param.textoFinal}
 	</c:if>
 </c:if>
-<!-- FIM SIGLA ASSINATURA ${doc.siglaAssinatura} -->
+<!-- FIM SUBSCRITOR ${doc.subscritor.id} -->
 </p>
 

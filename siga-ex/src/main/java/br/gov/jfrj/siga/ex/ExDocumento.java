@@ -516,30 +516,6 @@ public class ExDocumento extends AbstractExDocumento implements Serializable,
 							sb.append(blocoSubscritor);
 							sb.append("</span>");	
 						}
-					// String sigla = getSiglaAssinatura();
-					// String comentarioInicio = "<!-- SIGLA ASSINATURA " + sigla + " -->";
-					// String comentarioFim = "<!-- FIM SIGLA ASSINATURA " + sigla + " -->";
-
-					// if (sHtml.contains(comentarioInicio) && sHtml.contains(comentarioFim)) {
-					// 	String blocoSubscritor = sHtml.substring(
-					// 		sHtml.indexOf(comentarioInicio) + comentarioInicio.length(),
-					// 		sHtml.indexOf(comentarioFim));
-
-					// 	StringBuilder sb = new StringBuilder();
-
-					// 	if (!isAssinadoPelaPessoaComTokenOuSenha(subscritor)) {
-					// 		sb.append("<span style=\"color:#CD3700;\">");
-					// 		sb.append(blocoSubscritor);
-					// 		sb.append("</span>");
-					// 	} else {
-					// 		if (Prop.getBool("assinatura.estampar")) {
-					// 			sb.append("<span>- assinado eletronicamente -<br/>");
-					// 		} else {
-					// 			sb.append("<span>");
-					// 		}
-					// 		sb.append(blocoSubscritor);
-					// 		sb.append("</span>");
-					// 	}
 
 						sHtml = sHtml.replace(blocoSubscritor, sb.toString());
 					}
