@@ -191,6 +191,14 @@
 			ifr.height = 300;
 		console.log("resize foi chamado!");
 	}
+
+	var tramitacaoDebug = "${docVO.dotTramitacao}"
+	var docsRelacionadosDebug = "${docVO.dotRelacaoDocs}"
+
+	function debugTramitacaoDocsRelacionados(){
+		console.log("Tramitacao: ", tramitacaoDebug)
+		console.log("docsRelacionados: ", docsRelacionadosDebug)
+	}
 </script>
 
 <c:if test="${not docVO.digital}">
@@ -773,6 +781,7 @@
 						<div class="card-sidebar card bg-light mb-3">
 							<tags:collapse title="Documentos Relacionados" id="DocsRelacionados" collapseMode="${collapse_Expanded}">
 								<div id="outputRelacaoDocs" class="bg-light" style="border: 0px; padding: 0px">
+									<button onclick="debugTramitacaoDocsRelacionados()">debug</button>
 									<c:forEach items="${docVO.dotRelacaoDocs.secundariosAsMap}" var="mapa">
 										<p style="margin-top: .5em;">
 											${mapa.key}:
@@ -901,6 +910,7 @@
 						<div class="card-sidebar card bg-light mb-3">
 							<tags:collapse title="Tramitação" id="Tramitacao" collapseMode="${collapse_Tramitacao}">
 								<div style="display: none" id="inputTramitacao"></div>
+								<button onclick="debugTramitacaoDocsRelacionados()">debug</button>
 								<a href="javascript:void(0)" href="javascript:void(0)"
 									style="text-decoration: none">
 									<div id="outputTramitacao" class="bg-light"
